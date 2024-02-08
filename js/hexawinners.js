@@ -172,11 +172,11 @@ class HexaImage {
         // color es el color de relleno del hexágono
         // Devuelve un elemento <polygon> con los atributos correspondientes
         let puntos = ""; // Variable para almacenar los puntos del hexágono
-        let angulo = 0; // Variable para almacenar el ángulo de cada vértice
-        for (var i = 0; i < 6; i++) {
+        let angulo = -Math.PI / 6; // Variable para almacenar el ángulo de cada vértice
+        for (let i = 0; i < 6; i++) {
             // Calcular las coordenadas de cada vértice
-            var vx = x + r * Math.cos(angulo);
-            var vy = y + r * Math.sin(angulo);
+            let vx = x + r * Math.cos(angulo);
+            let vy = y + r * Math.sin(angulo);
             // Añadir las coordenadas al atributo points
             puntos += vx + "," + vy + " ";
             // Incrementar el ángulo en 60 grados
@@ -282,6 +282,7 @@ class HexaImage {
                     // Obtener la marca de la imagen del estudiante según el puesto
                     let imagen = this._data[puesto-1].image;
                     let url = imagen.src;
+                    // let url = "images/im_p_" + puesto + ".png";
                     // Crear una imagen con las coordenadas, el radio y la url correspondientes
                     let imagenSvg = this._createImage(x, y, r, url);
                     // Añadir la imagen al svg
